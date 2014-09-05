@@ -11,9 +11,12 @@ Repo for experimenting with squashing commits before merging a pull request
 1. While still on the feature branch, squash the commits: `git rebase -i master`
  - Keep the first commit as `pick`, all others should be `squash`.
  - Vim regex find/replace for this: `%s/pick/squash/g`. Make sure to reset the first one to `pick`.
-1. Edit the commit message so it's referring to the one squashed commit, rather than the individual commits being squashed.
+1. Edit the commit message so it's referring to the one squashed commit, rather than the individual commits being squashed. Save and quit the text editor to complete the commit.
 1. Force push the feature branch: `git push origin feature/4 --force`
+
+## How to merge a flattened pull request with 1 commit (avoiding the merge commit)
 1. Merge with master from command line:
  - `git checkout master`
- - `git merge feature/3 --no-ff --no-commit`
+ - `git merge feature/3 --no-commit`
 1. Push master: `git push origin master`
+
